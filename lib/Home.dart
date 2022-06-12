@@ -14,17 +14,18 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  //String _urlBase = "https://appbluemusic.herokuapp.com/hoteis";
-  String _urlBase = "https://jsonplaceholder.typicode.com";
+  String _urlBase = "https://appbluemusic.herokuapp.com/hoteis";
+  //String _urlBase = "https://jsonplaceholder.typicode.com";
+  List<Post> postagens = [];
 
   Future<List<Post>> recuperarPostagens() async {
-    http.Response response = await http.get(_urlBase + "/posts");
+    http.Response response = await http.get(_urlBase);
     var dadosJon = json.decode(response.body);
+    var dados = dadosJon['hoteis'];
 
-    List<Post> postagens = [];
-
-    for (var post in dadosJon) {
-      Post p = Post(post["userId"], post["id"], post["title"], post["body"]);
+    for (var post in dados) {
+      Post p = Post(post["hotel_id"], post["nome"], post["estrelas"],
+          post["diaria"], post["cidade"]);
       postagens.add(p);
     }
     return postagens;
@@ -61,8 +62,8 @@ class _HomeState extends State<Home> {
                         Post post = lista![index];
 
                         return ListTile(
-                          title: Text(post.title),
-                          subtitle: Text(post.id.toString()),
+                          title: Text(post.hotel_Id),
+                          subtitle: Text(post.cidade.toString()),
                         );
                       });
                 }
