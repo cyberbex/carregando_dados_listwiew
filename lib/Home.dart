@@ -14,7 +14,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  String _urlBase = "https://appcursoflask.herokuapp.com/hoteis";
+  String _urlBase = "https://mysqlhotel.herokuapp.com/hoteis";
   //String _urlBase = "https://jsonplaceholder.typicode.com";
   List<Post> postagens = [];
 
@@ -36,12 +36,12 @@ class _HomeState extends State<Home> {
 
   post() async {
     var corpo = json.encode({
-      "nome": "cyberbex Hotel",
-      "estrelas": 2.4,
-      "diaria": 1466.9,
-      "cidade": "londrina"
+      "nome": "put Hotel",
+      "estrelas": 2222,
+      "diaria": 14,
+      "cidade": "cidadePUT"
     });
-    http.Response response = await http.post(_urlBase + "/cyberbex",
+    http.Response response = await http.post(_urlBase + "/pute",
         headers: {"Content-type": "application/json; charset=UTF-8"},
         body: (corpo));
     print("resposta: ${response.statusCode}");
