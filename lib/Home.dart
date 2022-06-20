@@ -37,12 +37,12 @@ class _HomeState extends State<Home> {
 
   post() async {
     var corpo = json.encode({
-      "nome": "put Hotel",
-      "estrelas": 2222,
-      "diaria": 14,
-      "cidade": "cidadePUT"
+      "nome": "marcos Hotel",
+      "estrelas": 4.7,
+      "diaria": 800,
+      "cidade": "curitiba"
     });
-    http.Response response = await http.post(_urlBase + "/pute",
+    http.Response response = await http.post(_urlBase + "/marcos",
         headers: {"Content-type": "application/json; charset=UTF-8"},
         body: (corpo));
     print("resposta: ${response.statusCode}");
@@ -80,7 +80,7 @@ class _HomeState extends State<Home> {
                 ),
               ],
             ),
-            /* Expanded(
+            Expanded(
               child: FutureBuilder<List<Post>>(
                   future: recuperarPostagens(),
                   builder: (context, snapshot) {
@@ -115,7 +115,7 @@ class _HomeState extends State<Home> {
                         break;
                     }
                   }),
-            ), */
+            ),
           ],
         ),
       ),
