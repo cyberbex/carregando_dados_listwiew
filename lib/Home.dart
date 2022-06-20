@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:http/http.dart' as http;
 import 'dart:async';
 
@@ -15,7 +16,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   String _urlBase = "https://mysqlhotel.herokuapp.com/hoteis";
-  //String _urlBase = "https://jsonplaceholder.typicode.com";
+  //String _urlBase = "https://jsonplaceholder.typicode.com/posts";
   List<Post> postagens = [];
 
   Future<List<Post>> recuperarPostagens() async {
@@ -30,7 +31,7 @@ class _HomeState extends State<Home> {
 
       postagens.add(p);
     }
-
+    print(postagens);
     return postagens;
   }
 
@@ -79,7 +80,7 @@ class _HomeState extends State<Home> {
                 ),
               ],
             ),
-            Expanded(
+            /* Expanded(
               child: FutureBuilder<List<Post>>(
                   future: recuperarPostagens(),
                   builder: (context, snapshot) {
@@ -114,7 +115,7 @@ class _HomeState extends State<Home> {
                         break;
                     }
                   }),
-            ),
+            ), */
           ],
         ),
       ),
